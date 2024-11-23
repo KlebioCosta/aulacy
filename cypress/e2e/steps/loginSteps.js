@@ -7,7 +7,11 @@ Given("que acesse a página de autenticação do saucedemo", () => {
 })
 
 When("eu digitar o usuário {string}", (user) => {
-    cy.get('[data-test="username"]').type(user);
+    if (user == "") {
+        //faça nada
+    } else {
+        cy.get('[data-test="username"]').type(user);       
+    }
 })
 
 And("a senha {string}", (password) => {
@@ -19,10 +23,18 @@ And("clicar em login", () => {
 })
 
 And("a senha {string} e confirmar", (password) => {
-    cy.get('[data-test="password"]').type(password);
+    if (password == '') {
+        //faça nada
+    } else {
+        cy.get('[data-test="password"]').type(password);   
+    }
     cy.get('[data-test="login-button"]').click();
 })
 
 Then("deve ser exibida a tela de {string}", (title) => {
     cy.get('[data-test="title"]').should('have.text',title);
+})
+
+Then("deve ser exibida a mensagem {string}", (message) => {
+    cy.get('[data-test="error"]').should('have.text',message);
 })
