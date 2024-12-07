@@ -1,7 +1,7 @@
 class LoginPage {
     enterURL() {
       cy.visit(
-        "https://sso.acesso.gov.br/login?client_id=www.gov.br&authorization_id=1939e344beb"
+        "https://ecommerce-playground.lambdatest.io/index.php?route=account/login"
       );
     }
     enterUserNamePassword(username, password) {
