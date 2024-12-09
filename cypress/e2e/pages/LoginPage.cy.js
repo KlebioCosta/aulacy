@@ -4,6 +4,7 @@ class LoginPage {
         "https://ecommerce-playground.lambdatest.io/index.php?route=account/login"
       );
     }
+  
     enterUserNamePassword(username, password) {
       cy.get('[id="input-email"]').type(username);
       cy.get('[id="input-password"]').type(password);
